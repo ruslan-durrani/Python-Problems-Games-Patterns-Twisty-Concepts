@@ -1,0 +1,44 @@
+name=input("What is Your Name? ")
+print(f"Hello, {name} let's play a word guessing game,hangman!\n")
+word="secret"
+print(f"the word contains {len(word)} letters")
+position=""
+g = 0
+for a in word:
+    position+="-"
+print(f"start guessig: {position}\n")
+chance=1
+for a in range(10):
+    
+    guess=input(f"guess a character: ")
+    if guess in word:
+        
+        index=word.index(guess)
+        posit=""
+        for i in word:
+            if word.index(i)==index:
+                posit+=guess
+                g = g+1
+                if g == 6:
+                   break
+                
+            else:
+                posit+="-"
+            
+        chance+=1        
+        print(f"Correct guess:{posit}\n")
+        
+    
+
+    else:
+        x=10-chance
+        print("Wrong guess\n")
+        print(f"You have {x} more guesses")
+        chance+=1
+    
+    if g == 6:
+       break
+if g == 6:
+    print("You guess right ,You won:.. ")
+else:
+    print("You Lose:.. ")
